@@ -19,7 +19,7 @@ def work(foodids):
 	for item in foodidlist:
 		returnstring = returnstring + str(item) + "<br>"
 
-	return [("Running: 5 mph (12 min/mile)",30, (240,298,355))]
+	return str([("Running: 5 mph (12 min/mile)",30, (240,298,355))])
 
 @app.route("/upload_data", methods = ['POST'])
 def submit_food_data():
