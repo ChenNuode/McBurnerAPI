@@ -58,7 +58,7 @@ def work(foodids):
 	returneddict = {"data" : resultcount}
 	loaded_r = json.dumps(returneddict)
 
-	return str(loaded_r)
+	return loaded_r
 
 
 
