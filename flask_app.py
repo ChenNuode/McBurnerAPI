@@ -13,7 +13,7 @@ c_dict = {12: ("Fillet-of-fish",332), 78:("McSpicy",522), 78:("McChicken",385),7
 
 @app.route('/sendmefood/<foodids>', methods=["GET"])
 def work(foodids):
-	total_calories = 0
+	total_calories = 81
 
 	foodidlist = foodids.split(",")
 	returnstring = ""
@@ -25,8 +25,9 @@ def work(foodids):
 
 	print(str(total_calories))
 
-	#exercises Excercises, number of mins of that exercise to do
-	exercises = {"Push-ups":8.56,"Curl-ups":7.29,"Lunges":9.33,"Pull-ups":9.95}
+	#exercises Excercises, num of calories burned doing the exercise in 1 min
+	exercises = {"Push-ups":8.56/20,"Curl-ups":7.29/20,"Lunges":9.33/20,"Pull-ups":9.95/20,"Squats":0.32,"Running/km":70}
+	#running {4:,5.2, 6.7,7.5,8.6,10,12, 14}
 
 	resultcount = []
 	calorieleft = total_calories
@@ -34,8 +35,11 @@ def work(foodids):
 	for i, item in enumerate(exercises):
 
 		smallnum = calorieleft/(len(exercises) - i)
+		if item != "Running/km":
+			numofreps = int(smallnum/exercises[item])
+		else:
+			numofreps = round(smallnum/exercises[item],3)
 
-		numofreps = int(smallnum/exercises[item])
 		calorieleft = calorieleft - exercises[item]*numofreps
 		resultcount.append((item,numofreps))
 
