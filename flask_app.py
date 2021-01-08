@@ -1,6 +1,6 @@
 
 # A very simple Flask Hello World app for you to get started with...
-
+import json
 from flask import Flask
 
 app = Flask(__name__)
@@ -54,8 +54,14 @@ def work(foodids):
 
 		calorieleft = calorieleft - exercises[item]*numofreps
 		resultcount.append((item,numofreps))
-	
-	return str(resultcount)
+
+	returneddict = {"data" : resultcount}
+	loaded_r = json.dumps(returneddict)
+
+	return str(loaded_r)
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
