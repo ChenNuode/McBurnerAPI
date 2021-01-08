@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-	return 'Hello from Flask!'
+	return 'send your data to /sendmefood/'
 
 
-#c_dict = {1:""}
+c_dict = {1:""}
 
 @app.route('/sendmefood/<foodids>', methods=["GET"])
 def work(foodids):
@@ -19,9 +19,7 @@ def work(foodids):
 	for item in foodidlist:
 		returnstring = returnstring + str(item) + "<br>"
 
-  
-	return returnstring
-
+	return [("Running: 5 mph (12 min/mile)",30, (240,298,355))]
 
 @app.route("/upload_data", methods = ['POST'])
 def submit_food_data():

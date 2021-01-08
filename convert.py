@@ -1,4 +1,5 @@
+from lxml import html
+import requests
 
-
-def convert_exercises():
+def fetchstuff(index):
 	pass
