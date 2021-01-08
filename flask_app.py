@@ -1,7 +1,7 @@
 
 # A very simple Flask Hello World app for you to get started with...
 
-from flask import Flask, render_template, session, redirect, url_for, request
+from flask import Flask
 
 app = Flask(__name__)
 
@@ -26,7 +26,6 @@ def work(foodids):
 @app.route("/upload_data", methods = ['POST'])
 def submit_food_data():
 	return
-
 
 if __name__ == "__main__":
     app.run(debug=True)
