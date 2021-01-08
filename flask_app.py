@@ -55,7 +55,7 @@ def work(foodids):
 		calorieleft = calorieleft - exercises[item]*numofreps
 		resultcount.append((item,numofreps))
 
-	returneddict = {"data" : resultcount}
+	returneddict = {"data" : [resultcount]}
 	loaded_r = json.dumps(returneddict)
 
 	return loaded_r
