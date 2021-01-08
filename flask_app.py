@@ -9,7 +9,19 @@ app = Flask(__name__)
 def hello_world():
 	return 'send your data to /sendmefood/'
 
-c_dict = {12: ("Fillet-of-fish",332), 78:("McSpicy",522), 78:("McChicken",385),78:("McChicken",385),68:("Big Mac",522),14:("Hashbrown",149)}
+c_dict = {
+	1: ("Fillet-of-fish",332),
+	2: ("Double Fillet-of-fish",474),
+	3: ("McSpicy",522),
+	4: ("Double McSpicy",800),
+	5: ("McChicken",385),
+	6: ("Big Mac",522),
+	7: ("Hashbrown",149),
+	8:("Coca-Cola - Medium",213),
+	9:("Sprite - Medium",233),
+	10:("Orange Juice",184),
+	11:("French Fries - Medium",346),
+}
 
 @app.route('/sendmefood/<foodids>', methods=["GET"])
 def work(foodids):
@@ -42,7 +54,7 @@ def work(foodids):
 
 		calorieleft = calorieleft - exercises[item]*numofreps
 		resultcount.append((item,numofreps))
-
+	
 	return str(resultcount)
 
 if __name__ == "__main__":
