@@ -90,18 +90,19 @@ def generate_crap():
 			numofreps = round(smallnum/exercises[item],3)
 
 		calorieleft = calorieleft - exercises[item]*numofreps
-		resultcount.append((item,numofreps))
+		resultcount.append(item + " " + str(numofreps))
+		finaldict = {"title":"", "data":resultcount}
 
-	return resultcount,total_calories
+	return finaldict,total_calories
 
 
 @app.route('/sendmefood2/', methods=["GET"])
 def work2():
-	returneddict = {"workouts" : [], "total_calories":[]}
+	returneddict = {'returned_data':[]}
 	for i in range(2):
 		w1,tc1 = generate_crap()
-		returneddict["workouts"].append(w1)
-		returneddict["total_calories"].append(tc1)
+		returneddict["returned_data"].append(w1)
+		#returneddict["total_calories"].append(tc1)
 
 	loaded_r = json.dumps(returneddict)
 
